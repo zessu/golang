@@ -30,8 +30,8 @@ func main() {
 	fmt.Println(otherGrades["sylvia"])
 
 	// checking for existance in a really cool way
-	if _, exists := grades["jane"]; exists {
-		fmt.Println("value exists")
+	if _, exists := grades["sdasdasd"]; !exists {
+		fmt.Println("value does not exist")
 	}
 
 	fmt.Println(grades["whatsndadsadasd"]) // returns 0, as second arg

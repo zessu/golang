@@ -48,6 +48,8 @@ func switchOnType(x interface{}) {
 		fmt.Println("a string")
 	case user:
 		fmt.Println("a user object")
+	default:
+		fmt.Println("unsupported object type")
 	}
 }
 
@@ -58,4 +60,5 @@ func main() {
 	switchOnType(1)
 	switchOnType("a string")
 	switchOnType(user{fname: "x", lname: "y"})
+	switchOnType(1.222)
 }

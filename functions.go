@@ -28,7 +28,7 @@ func returnsTwoTypes() (name string, errored bool) {
 }
 
 // variadicFunc takes a variable number of args
-func variadicFunc(name string, varArgs ...string) {
+func variadicFunc(name string, varArgs ...string) { // we can do varArgs ...interface{} where we don't know the types of args to be passed
 	fmt.Println(name, varArgs[0], varArgs[1], varArgs[2])
 }
 
@@ -42,15 +42,13 @@ func main() {
 	greet(user)
 	fmt.Println(functionReturns())
 	// ignore the first value returned, if we don't need to use it, otherwise we'd get errors
-	message, error := returnsTwoTypes()
-	_, error2 := returnsTwoTypes() // ignore message2, do not need to declare, will otherwise get an error
-	if error {
-		fmt.Println("There was an error")
+	if _, error := returnsTwoTypes(); error {
+		fmt.Println("There was an error first")
 	}
-	if error2 {
-		fmt.Println("There was an error")
+	if _, error := returnsTwoTypes(); error {
+		// ignore message2, do not need to declare, will otherwise get an error
+		fmt.Println("There was an error second output")
 	}
-	fmt.Println(message)
 	variadicFunc("john", "dhoe", "emmanuela", "somebodyelse")
 	takesFunction("welovetoparty", func(arg1 string) { fmt.Println(arg1) })
 }

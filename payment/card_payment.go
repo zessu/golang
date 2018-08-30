@@ -1,30 +1,20 @@
-package payment
+package main
 
 import (
 	"errors"
+	"fmt"
 	"regexp"
 	"time"
 )
 
-// CreditCard represents a credit card
-type CreditCard struct {
-	ownerName       string
-	cardNumber      string
-	expirationMonth int
-	expirationYear  int
-	securityCode    int
-	availableCredit float32
-}
-
 // CreateCreditAccount creates a new credit account
-func CreateCreditAccount(ownerName string, cardNumber string, expirationMonth int, expirationYear int, securityCode int, availableCredit float32) *CreditCard {
+func CreateCreditAccount(ownerName string, cardNumber string, expirationMonth int, expirationYear int, securityCode int) *CreditCard {
 	return &CreditCard{
 		ownerName:       ownerName,
 		cardNumber:      cardNumber,
 		expirationMonth: expirationMonth,
 		expirationYear:  expirationYear,
 		securityCode:    securityCode,
-		availableCredit: availableCredit,
 	}
 }
 
@@ -76,4 +66,10 @@ func (c *CreditCard) SecurityCode() int {
 // AvailableCredit returns amount left in card
 func (c *CreditCard) AvailableCredit() float32 {
 	return c.availableCredit
+}
+
+// ProcessPayment processes a credit card payment
+func (c *CreditCard) ProcessPayment() bool {
+	fmt.Println("processing card payment")
+	return true
 }

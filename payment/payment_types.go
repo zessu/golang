@@ -11,9 +11,13 @@ type CreditCard struct {
 }
 
 // Cash represents a payment type
-type Cash struct{}
+type Cash struct {
+	balance float32
+	amount  float32
+}
 
 // PaymentOption applies for all cash methods
 type PaymentOption interface {
 	ProcessPayment() bool
+	checkBalance() float32
 }

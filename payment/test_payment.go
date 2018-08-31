@@ -16,7 +16,8 @@ func main() {
 		2018,
 		123,
 	)
-	cash := CreateCashAccount()
+	cash := CreateCashAccount(200)
+	fmt.Println(cash.checkBalance())
 	fmt.Println(card.OwnerName())
 	fmt.Println(card.CardNumber())
 	error := card.SetCardNumber("1111-1111-1111-1111")
@@ -27,7 +28,7 @@ func main() {
 		option.ProcessPayment()
 		option = cash // change option to instance of cash which also implements the interface
 		option.ProcessPayment()
-		// or we can do this using a function instead
+		// or we can do this using message passing
 		processPayment(card)
 		processPayment(cash)
 	} else {

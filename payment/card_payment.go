@@ -63,8 +63,8 @@ func (c *CreditCard) SecurityCode() int {
 	return c.securityCode
 }
 
-// AvailableCredit returns amount left in card
-func (c *CreditCard) AvailableCredit() float32 {
+// Balance returns amount of credit left in card
+func (c *CreditCard) checkBalance() float32 {
 	return c.availableCredit
 }
 
